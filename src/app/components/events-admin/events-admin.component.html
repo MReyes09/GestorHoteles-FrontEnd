@@ -1,0 +1,26 @@
+<h2>Events of Hotel</h2>
+<br>
+
+<div class="button" id="volver">
+    <button type="button" class="btn btn-secondary col-lg-3 mx-2" routerLink="/profileHotel">Back</button>         
+</div>
+<div>
+    <table class="table table-sm">
+        <thead class="table-success">            
+            <tr>
+                <th>No.</th>
+                <th>Name Event</th>            
+                <th>Type Event</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tr  *ngFor = "let event of events let i = index">                
+            <td>{{i+1}}</td>
+            <td>{{event.nameEvent}}</td>
+            <td>{{event.typeEvent}}</td>
+            <td>{{event.date | date: 'dd/MM/yyyy'}}</td>
+            <td><a (click)="obtenerData(event)">More_Options</a></td>
+        </tr>
+    </table>
+</div>

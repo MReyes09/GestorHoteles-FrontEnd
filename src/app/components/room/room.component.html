@@ -1,0 +1,23 @@
+<h1>Rooms of Hotels</h1>
+<div>
+    <table class="table table-sm">
+        <thead class="table-success">            
+            <tr>
+                <th>No.</th>
+                <th>Name Room</th>            
+                <th>Price</th>
+                <th>Description</th>
+                <th>Status</th>            
+                <th></th>
+            </tr>
+        </thead>
+        <tr  *ngFor = "let room of rooms let i = index">                
+            <td>{{i+1}}</td>
+            <td>{{room.nameRoom}}</td>
+            <td>{{room.price}}</td>
+            <td>{{room.description}}</td>
+            <td>{{room.status}}</td>
+            <td><a (click)="obtenerData(hotel)">More_Options</a></td>
+        </tr>
+    </table>
+</div> 

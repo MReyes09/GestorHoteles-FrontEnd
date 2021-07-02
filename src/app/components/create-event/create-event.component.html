@@ -1,0 +1,42 @@
+<body class="text-center">
+    <form class="form-createEvent"  #createEvent="ngForm" (ngSubmit)="onSubmit(createEvent)">
+        <img class="mb-4" width="72" height="72" src="../../../assets/img/calendario1.png" alt="Imagen de un calendario">
+        <h1 class="h3 mb-3 font-weight-normal">Create a new event</h1>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputName">Name event</label>
+                <input [(ngModel)]="event.nameEvent"  name="name" #name="ngModel" class="form-control" type="text" id="inputName" placeholder="Name event" required>
+                <span *ngIf="!name.valid && name.touched">
+                    Campo obligatorio
+                </span>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputTypeEvent">Type event</label>
+                <input [(ngModel)]="event.typeEvent"  name="typeEvent" #typeEvent="ngModel" class="form-control" type="text" id="inputTypeEvent" placeholder="Type event" required>
+                <span *ngIf="!typeEvent.valid && typeEvent.touched">
+                    Campo obligatorio
+                </span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputDate">Date</label>
+                <input [(ngModel)]="event.date"  name="date" #date="ngModel" class="form-control" type="date" id="inputDate" placeholder="Date" required>
+                <span *ngIf="!date.valid && date.touched">
+                    Campo obligatorio
+                </span>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputDescription">Description</label>
+                <input [(ngModel)]="event.description"  name="description" #descrip="ngModel" class="form-control" type="text" id="inputDescription" placeholder="Description" >
+                <span *ngIf="!descrip.valid && descrip.touched">
+                    Campo obligatorio
+                </span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-danger" [disabled]="!createEvent.form.valid">Create</button>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-dark" routerLink="/profileHotel">Back</button>
+    </form>
+</body>

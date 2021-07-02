@@ -1,0 +1,38 @@
+.navbar{
+    background-color: #D8D8D8;
+}
+
+.navbar-brand{
+    color: black
+}
+
+.imgUser{
+    width: 115;
+    height: 70px;
+}
+
+.imgnavbar{
+    width: 40px;
+    height: 40px;
+}
+
+#imgUserNavbar{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 0.4rem;
+}
+
+#textUser{
+    margin: 0.4rem;    
+    text-decoration: none;
+    color:black;
+    outline: none;
+}
+
+#navbarDropdown{
+    margin: 0.5rem 2rem;    
+    text-decoration: none;
+    color:#FF9100;
+    outline: none;    
+}

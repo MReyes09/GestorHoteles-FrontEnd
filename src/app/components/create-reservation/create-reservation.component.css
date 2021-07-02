@@ -1,0 +1,36 @@
+.btn-success{
+    border-radius: 10px;
+    width:250px;
+    height: 75px;
+    margin: auto;
+    float: left;
+}
+
+.btn-danger{
+    border-radius: 10px;
+    width:250px;
+    height: 75px;
+    margin: auto;
+    float: right;
+}
+
+button:hover{
+    transition: all 1s;
+    background-color: #39a73f;
+}
+
+.form-signin{
+    width: 100%;
+    max-width: 640px;
+    padding: 15px;
+    margin: auto;
+}
+
+select{
+    width:100px;
+}
+
+div{
+    align-items: center;
+    justify-content: center;
+}

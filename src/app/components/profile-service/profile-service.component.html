@@ -1,0 +1,65 @@
+<body class="text-center">
+    <form class="form-signin" #ServiceProfile="ngForm" (ngSubmit)="onSubmit()">
+        <h1>Service: {{service.nameService}}</h1>
+        <br>
+        <img data-toggle="modal" id="imagePerfil" class ="mb-4" width="72" height="72" src="../../../assets/img/technical-support.png" alt="imagen de un hotel">        
+        <hr>        
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputNameService">Name Service</label>
+                <input [(ngModel)]="service.nameService"  name="name" #nameService="ngModel" class="form-control" type="text" id="inputNameService" placeholder="Name Service" required>                
+                <span *ngIf="!nameService.valid && nameService.touched">
+                    Campo obligatorio
+                </span>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPrice">Price</label>
+                <input [(ngModel)]="service.price"  name="price" #price="ngModel" class="form-control" type="number" id="inputPrice" placeholder="Price" required>
+                <span *ngIf="!price.valid && price.touched">
+                    Campo obligatorio
+                </span>
+            </div>
+        </div>       
+
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="check">
+                <label class="form-check-label" for="check">I aggree the terms and conditions</label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success col-lg-3 mx-2" [disabled]="!ServiceProfile.form.valid">Update</button>
+        <button type="button" class="btn btn-danger col-lg-3 mx-2" data-toggle="modal" data-target="#exampleModal" >Delete Service</button>
+    </form>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Danger zone!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            <h3>This action is irreversible!</h3>
+            <form #serviceRemoved='ngForm'>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="passwordRemove">Password Admin</label>
+                        <input [(ngModel)]='possiblePass' type="password" id='passwordRemove' name='possiblePass' required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="serviceRemoved">Name Service</label>
+                        <input [(ngModel)]='possibleService' type="text" id='serviceRemoved' name='possibleService' required>
+                    </div>
+                </div>                
+            </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" data-dismiss="modal" class="btn btn-danger" (click)='deleteService()' [disabled]="!serviceRemoved.form.valid">I'm sure</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>

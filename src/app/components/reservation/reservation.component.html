@@ -1,0 +1,72 @@
+<body class="text-center">
+    <form class="form-signin" #reservationUpdate="ngForm" (ngSubmit)="onSubmit()">
+        <br>      
+        <div class="form-group">
+            <div class="form-group col-md-6">
+                <label for="inputName">Reservante</label>
+                <input [(ngModel)]="reservation.user" name='user' #user="ngModel" class="form-control" id="inputUser" type="text" placeholder="Reservante" required>
+                <span *ngIf="!user.valid && user.touched">
+                    *Obligatorio
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-group col-md-6">
+                <label for="inputName">Room</label>
+                <input [(ngModel)]="reservation.room" name='room' #room="ngModel" class="form-control" id="inputRoom" type="text" placeholder="Room" required>
+                <span *ngIf="!room.valid && room.touched">
+                    *Obligatorio
+                </span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputcheckIn">Check-In</label>
+                <input [(ngModel)]="reservation.checkIn" #checkIn="ngModel" name='checkIn' class="form-control" placeholder="Entrada" type="date" id="inputcheckIn" required>
+                <span *ngIf="!checkIn.valid && checkIn.touched">
+                    *Obligatorio
+                </span>
+            </div>
+            
+            <div class="form-group col-md-6">
+                <label for="inputcheckOut">Check-Out</label>
+                <input [(ngModel)]="reservation.checkOut" #checkOut="ngModel" name="checkOut" class="form-control" type="date" id="inputcheckOut" placeholder="Salida" required>
+                <span *ngIf="!checkOut.valid && checkOut.touched">
+                    *Obligatorio
+                </span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary col-lg-3 mx-2">Update Reservation</button>
+        <button type="button" class="btn btn-danger col-lg-3 mx-2" data-toggle="modal" data-target="#exampleModal" >Delete Reservation</button>        
+    </form>
+
+
+
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Danger zone!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            <h3>This action is irreversible!</h3>
+            <span>Put your name if you are sure to remove this reservation</span>
+            <form #removeReservation='ngForm'>
+                <label for="removeReservation"></label>
+                <input [(ngModel)]='pass' type="text" id='removeReservation' name='pass' required>
+            </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-danger" (click)='removeReservation()'>I'm sure</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>

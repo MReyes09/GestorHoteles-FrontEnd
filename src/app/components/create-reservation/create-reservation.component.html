@@ -1,0 +1,46 @@
+<body class="text-center">
+    <form class="form-signin" #createReservation="ngForm" (ngSubmit)="onSubmit(createReservation)">
+        <h1 class="h3 mb-3 font-weight-normal">Reservation</h1>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <b for="inputUser">Reservante</b>
+                <input [(ngModel)]="reservation.user" name='user' #user="ngModel" class="form-control" id="name" type="text" placeholder="Reservante" required>
+                <span *ngIf="!user.valid && user.touched">
+                    *Obligatorio
+                </span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <b for="inputReservante">Estadía</b>
+                <br>
+                <label>Check In</label>
+                <input [(ngModel)]="reservation.checkIn" name='checkIn'#checkIn="ngModel" class="form-control" id="checkIn" type="date" placeholder="Entrada" required>
+                <span *ngIf="!checkIn.valid && checkIn.touched">
+                    *Obligatorio
+                </span>
+                <br>
+                <label>Check Out</label>
+                <input [(ngModel)]="reservation.checkOut" name='checkOut'#checkOut="ngModel" class="form-control" id="checkOut" type="date" placeholder="Salida" required>
+                <span *ngIf="!checkOut.valid && checkOut.touched">
+                    *Obligatorio
+                </span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <b for="inputserviceBefore">Servicios</b>
+                <br>
+                <select name='serviceBefore'>
+                    <option>{{reservation.serviceBefore}}</option>
+                </select>
+            </div>
+        </div>
+
+        <button class="btn btn-lg btn-success btn-block bg-success" type="submit">Confirmar reservación</button>
+        <button class="btn btn-lg btn-danger btn-block bg-danger" type="button" routerLink="/room">Cancelar reservación</button>
+    </form>
+</body>
